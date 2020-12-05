@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="16119" systemVersion="19D76" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="Cocktail" representedClassName="Cocktail" syncable="YES">
+        <attribute name="instructions" optional="YES" attributeType="String"/>
+        <attribute name="name" optional="YES" attributeType="String"/>
+        <relationship name="groups" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="CocktailGroup" inverseName="cocktails" inverseEntity="CocktailGroup"/>
+        <relationship name="ingredients" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="IngredientMeasurement" inverseName="cocktailIngredients" inverseEntity="IngredientMeasurement"/>
+    </entity>
+    <entity name="CocktailGroup" representedClassName="CocktailGroup" syncable="YES">
+        <attribute name="name" optional="YES" attributeType="String"/>
+        <relationship name="cocktails" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Cocktail" inverseName="groups" inverseEntity="Cocktail"/>
+    </entity>
+    <entity name="Ingredient" representedClassName="Ingredient" syncable="YES">
+        <attribute name="name" optional="YES" attributeType="String"/>
+        <relationship name="ingredientGroups" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="IngredientGroup" inverseName="ingredients" inverseEntity="IngredientGroup"/>
+    </entity>
+    <entity name="IngredientGroup" representedClassName="IngredientGroup" syncable="YES">
+        <attribute name="name" optional="YES" attributeType="String"/>
+        <relationship name="ingredients" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Ingredient" inverseName="ingredientGroups" inverseEntity="Ingredient"/>
+    </entity>
+    <entity name="IngredientMeasurement" representedClassName="IngredientMeasurement" syncable="YES">
+        <attribute name="name" optional="YES" attributeType="String"/>
+        <attribute name="quantity" optional="YES" attributeType="String"/>
+        <relationship name="cocktailIngredients" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Cocktail" inverseName="ingredients" inverseEntity="Cocktail"/>
+    </entity>
+    <elements>
+        <element name="Cocktail" positionX="1763" positionY="684" width="128" height="103"/>
+        <element name="CocktailGroup" positionX="1899" positionY="819" width="128" height="73"/>
+        <element name="Ingredient" positionX="1762" positionY="949" width="128" height="73"/>
+        <element name="IngredientMeasurement" positionX="2041" positionY="822" width="128" height="88"/>
+        <element name="IngredientGroup" positionX="1899" positionY="828" width="128" height="73"/>
+    </elements>
+</model>
